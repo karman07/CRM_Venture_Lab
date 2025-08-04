@@ -1,35 +1,51 @@
 import React from "react";
-
-function App() {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+import Onboarding from "./pages/Onboarding";
+import Dashboard from "./pages/Dashboard";
+import FundingPage from "./pages/FundingPage";
+import { FundingProvider } from "./context/FundingContext";
+import { StartupProvider } from "./context/StartupContext";
+import StartUpPage from "./pages/StartUpPage";
+import { AwardsProvider } from "./context/AwardsContext";
+import AwardsPage from "./pages/AwardsPage";
+import IPpage from "./pages/IPpage";
+import { IPProvider } from "./context/IPContext";
+import { UpdatesProvider } from "./context/UpdatesContext";
+import UpdatesPage from "./pages/UpdatesPage";
+import TeamPage from "./pages/TeamPage";
+import { TeamProvider } from "./context/TeamContext";
+const App = () => {
   return (
-    <div className="gradient-bg flex min-h-screen items-center justify-center from-blue-500 to-purple-600 p-8">
-      <div className="max-w-xl transform rounded-lg bg-white p-8 shadow-lg transition duration-500 hover:scale-105">
-        <h1 className="mb-4 animate-bounce text-center text-4xl font-bold text-gray-800">
-          Hello World
-        </h1>
-        <p className="mb-6 rounded-md bg-amber-100 p-6 text-gray-600">
-          Welcome to our React application enhanced with Tailwind CSS. This
-          application is built using the modern web development stack: Vite,
-          React, Tailwind CSS, and Prettier.
-        </p>
-        <div className="prose mt-6">
-          <p>
-            Tailwind CSS is a utility-first CSS framework that provides
-            low-level utility classes to build custom designs without any
-            annoying opinionated styles you have to fight to override. Paired
-            with React, it makes building beautiful and interactive user
-            interfaces a breeze.
-          </p>
-          <p>
-            Explore the power of combining these technologies to create
-            stunning, responsive, and animated web applications. Enjoy the
-            seamless development experience with Prettier ensuring your code
-            stays clean and consistent.
-          </p>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <FundingProvider>
+        <StartupProvider>
+          <AwardsProvider>
+            <IPProvider>
+              <UpdatesProvider>
+                <TeamProvider>
+              <Routes>
+                <Route path="/" element={<Onboarding />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/funding" element={<FundingPage />} />
+                <Route path="*" element={<Onboarding />} />
+                <Route path="/startup" element={<StartUpPage />} />
+                <Route path="/awards" element={<AwardsPage />} />
+                <Route path="/ip" element={<IPpage />} />
+                <Route path="/updates" element={<UpdatesPage />} />
+                <Route path="/team" element={<TeamPage />} />
+              </Routes>
+              </TeamProvider>
+              </UpdatesProvider>
+            </IPProvider>
+          </AwardsProvider>
+        </StartupProvider>
+      </FundingProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
