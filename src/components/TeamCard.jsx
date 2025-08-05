@@ -3,14 +3,14 @@ import { FaLinkedin, FaInstagram, FaTwitter, FaEdit, FaTrash } from 'react-icons
 import defaultLogo from '../assets/person_default.png';
 import { useTeam } from '../context/TeamContext';
 
-const TeamCard = ({ member, onEdit }) => {
+const TeamCard = ({ avatar, name, role, id, onEdit }) => {
   const { deleteMember } = useTeam();
 
   return (
     <div className="bg-white rounded-2xl border p-5 flex items-center gap-5 shadow-sm hover:shadow-md transition">
       <img
-        src={member.avatar || defaultLogo}
-        alt={member.name}
+        src={avatar || defaultLogo}
+        alt={name}
         className="w-16 h-16 rounded-full object-cover border"
         onError={(e) => {
           e.target.onerror = null;
@@ -20,14 +20,14 @@ const TeamCard = ({ member, onEdit }) => {
       <div className="flex-1">
         <div className="flex justify-between items-start">
           <div>
-            <p className="text-lg font-semibold text-gray-900">{member.name}</p>
-            <p className="text-sm text-gray-500">{member.role}</p>
+            <p className="text-lg font-semibold text-gray-900">{name}</p>
+            <p className="text-sm text-gray-500">{role}</p>
           </div>
           <div className="flex gap-2 text-lg text-gray-600">
-            <button onClick={() => onEdit(member)} title="Edit">
+            <button onClick={() => onEdit?.({ avatar, name, role, id })} title="Edit">
               <FaEdit className="hover:text-blue-600" />
             </button>
-            <button onClick={() => deleteMember(member.id)} title="Delete">
+            <button onClick={() => deleteMember(id)} title="Delete">
               <FaTrash className="hover:text-red-500" />
             </button>
           </div>
