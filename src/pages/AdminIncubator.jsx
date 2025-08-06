@@ -1,16 +1,19 @@
-import React from 'react';
-import { useTeamMembers } from '../../context/IncubatorTeamMemberContext';
-import { FaLinkedin, FaInstagram, FaTwitter } from 'react-icons/fa';
-
-const TeamMembers = () => {
-  const { members } = useTeamMembers();
+import { useAdminIncubator } from '../context/AdminIncubatorContext';
+import TeamCard from '../components/TeamCard';
+import MainLayout from '../layout/Layout';
+import StartUpLayout from '../layout/Startup';
+import IncubatorMainLayout from '../layout/IncubatorMainLayout';
+import { FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa';
+const AdminIncubatorPage = () => {
+  const { mentors } = useAdminIncubator();
 
   return (
-    <div className="p-6 min-h-screen">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Our Team</h2>
-      
+     <MainLayout>
+        <IncubatorMainLayout>
+    <div className="max-w-7xl mx-auto p-6">
+      <h1 className="text-2xl font-bold mb-6 text-slate-800">Our Admins</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {members.map((member, index) => (
+        {mentors.map((member, index) => (
           <div
             key={index}
             className="bg-white/60 backdrop-blur-md shadow-xl rounded-2xl border border-gray-200 p-6 hover:scale-[1.02] transition-transform duration-300"
@@ -51,7 +54,9 @@ const TeamMembers = () => {
         ))}
       </div>
     </div>
+    </IncubatorMainLayout>
+    </MainLayout>
   );
 };
 
-export default TeamMembers;
+export default AdminIncubatorPage;

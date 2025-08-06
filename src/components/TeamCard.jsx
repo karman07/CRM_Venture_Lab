@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaLinkedin, FaInstagram, FaTwitter, FaEdit, FaTrash } from 'react-icons/fa';
 import defaultLogo from '../assets/person_default.png';
 import { useTeam } from '../context/TeamContext';

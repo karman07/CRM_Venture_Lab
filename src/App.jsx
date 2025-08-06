@@ -20,6 +20,10 @@ import DocumentsPage from "./pages/DocumentsPage";
 import TasksPage from "./pages/TasksIncubator";
 import { IncubatorTeamMemberProvider } from "./context/IncubatorTeamMemberContext";
 import IncubatorTeamPage from "./pages/IncubatorTeamPage";
+import IncubatorMentorsPage from "./pages/IncubatorMentorsPage";
+import { IncubatorMentorsProvider } from "./context/IncubatorMentorsProvider";
+import AdminIncubatorPage from "./pages/AdminIncubator";
+import { AdminIncubatorProvider } from "./context/AdminIncubatorContext";
 const App = () => {
   return (
     <BrowserRouter>
@@ -30,22 +34,37 @@ const App = () => {
               <UpdatesProvider>
                 <TeamProvider>
                   <IncubatorTeamMemberProvider>
-                    <Routes>
-                      <Route path="/" element={<Onboarding />} />
-                      <Route path="/signup" element={<Signup />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/dashboard" element={<Dashboard />} />
-                      <Route path="/funding" element={<FundingPage />} />
-                      <Route path="*" element={<Onboarding />} />
-                      <Route path="/startup" element={<StartUpPage />} />
-                      <Route path="/awards" element={<AwardsPage />} />
-                      <Route path="/ip" element={<IPpage />} />
-                      <Route path="/updates" element={<UpdatesPage />} />
-                      <Route path="/team" element={<TeamPage />} />
-                      <Route path="/docs" element={<DocumentsPage />} />
-                      <Route path="/tasks" element={<TasksPage />} />
-                      <Route path="/incubatorteam" element={<IncubatorTeamPage />} />
-                    </Routes>
+                    <IncubatorMentorsProvider>
+                      <AdminIncubatorProvider>
+                        <Routes>
+                          <Route path="/" element={<Onboarding />} />
+                          <Route path="/signup" element={<Signup />} />
+                          <Route path="/login" element={<Login />} />
+                          <Route path="/dashboard" element={<Dashboard />} />
+                          <Route path="/funding" element={<FundingPage />} />
+                          <Route path="*" element={<Onboarding />} />
+                          <Route path="/startup" element={<StartUpPage />} />
+                          <Route path="/awards" element={<AwardsPage />} />
+                          <Route path="/ip" element={<IPpage />} />
+                          <Route path="/updates" element={<UpdatesPage />} />
+                          <Route path="/team" element={<TeamPage />} />
+                          <Route path="/docs" element={<DocumentsPage />} />
+                          <Route path="/tasks" element={<TasksPage />} />
+                          <Route
+                            path="/incubatorteam"
+                            element={<IncubatorTeamPage />}
+                          />
+                          <Route
+                            path="/incubator-mentors"
+                            element={<IncubatorMentorsPage />}
+                          />
+                          <Route
+                            path="/admin-incubator"
+                            element={<AdminIncubatorPage />}
+                          />
+                        </Routes>
+                      </AdminIncubatorProvider>
+                    </IncubatorMentorsProvider>
                   </IncubatorTeamMemberProvider>
                 </TeamProvider>
               </UpdatesProvider>
