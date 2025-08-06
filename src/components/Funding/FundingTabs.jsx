@@ -32,8 +32,8 @@ const FundingTabs = () => {
         </div>
         <button
           onClick={() => setOpenDialog(true)}
-          className="px-4 py-2 rounded-lg text-white font-medium"
-          style={{ backgroundColor: COLORS.primary }}
+          className="px-4 py-2 rounded-lg text-white font-medium bg-blue-600 hover:bg-blue-700 transition"
+          // style={{ backgroundColor: COLORS.primary }}
         >
           + Add Funding
         </button>

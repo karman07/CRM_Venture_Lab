@@ -24,6 +24,10 @@ import IncubatorMentorsPage from "./pages/IncubatorMentorsPage";
 import { IncubatorMentorsProvider } from "./context/IncubatorMentorsProvider";
 import AdminIncubatorPage from "./pages/AdminIncubator";
 import { AdminIncubatorProvider } from "./context/AdminIncubatorContext";
+import { MyIncubatorProvider } from "./context/MyIncubatorContext";
+import MyIncubatorPage from "./pages/MyIncubatorsPage";
+import { IncubationProvider } from "./context/IncubationContext";
+import ApplyForIncubation from "./pages/ApplyForIncubation";
 const App = () => {
   return (
     <BrowserRouter>
@@ -36,33 +40,57 @@ const App = () => {
                   <IncubatorTeamMemberProvider>
                     <IncubatorMentorsProvider>
                       <AdminIncubatorProvider>
-                        <Routes>
-                          <Route path="/" element={<Onboarding />} />
-                          <Route path="/signup" element={<Signup />} />
-                          <Route path="/login" element={<Login />} />
-                          <Route path="/dashboard" element={<Dashboard />} />
-                          <Route path="/funding" element={<FundingPage />} />
-                          <Route path="*" element={<Onboarding />} />
-                          <Route path="/startup" element={<StartUpPage />} />
-                          <Route path="/awards" element={<AwardsPage />} />
-                          <Route path="/ip" element={<IPpage />} />
-                          <Route path="/updates" element={<UpdatesPage />} />
-                          <Route path="/team" element={<TeamPage />} />
-                          <Route path="/docs" element={<DocumentsPage />} />
-                          <Route path="/tasks" element={<TasksPage />} />
-                          <Route
-                            path="/incubatorteam"
-                            element={<IncubatorTeamPage />}
-                          />
-                          <Route
-                            path="/incubator-mentors"
-                            element={<IncubatorMentorsPage />}
-                          />
-                          <Route
-                            path="/admin-incubator"
-                            element={<AdminIncubatorPage />}
-                          />
-                        </Routes>
+                        <MyIncubatorProvider>
+                          <IncubationProvider>
+                            <Routes>
+                              <Route path="/" element={<Onboarding />} />
+                              <Route path="/signup" element={<Signup />} />
+                              <Route path="/login" element={<Login />} />
+                              <Route
+                                path="/dashboard"
+                                element={<Dashboard />}
+                              />
+                              <Route
+                                path="/funding"
+                                element={<FundingPage />}
+                              />
+                              <Route path="*" element={<Onboarding />} />
+                              <Route
+                                path="/startup"
+                                element={<StartUpPage />}
+                              />
+                              <Route path="/awards" element={<AwardsPage />} />
+                              <Route path="/ip" element={<IPpage />} />
+                              <Route
+                                path="/updates"
+                                element={<UpdatesPage />}
+                              />
+                              <Route path="/team" element={<TeamPage />} />
+                              <Route path="/docs" element={<DocumentsPage />} />
+                              <Route path="/tasks" element={<TasksPage />} />
+                              <Route
+                                path="/incubatorteam"
+                                element={<IncubatorTeamPage />}
+                              />
+                              <Route
+                                path="/incubator-mentors"
+                                element={<IncubatorMentorsPage />}
+                              />
+                              <Route
+                                path="/admin-incubator"
+                                element={<AdminIncubatorPage />}
+                              />
+                              <Route
+                                path="/my-incubator"
+                                element={<MyIncubatorPage />}
+                              />
+                              <Route
+                                path="/apply"
+                                element={<ApplyForIncubation/>}
+                              />
+                            </Routes>
+                          </IncubationProvider>
+                        </MyIncubatorProvider>
                       </AdminIncubatorProvider>
                     </IncubatorMentorsProvider>
                   </IncubatorTeamMemberProvider>
