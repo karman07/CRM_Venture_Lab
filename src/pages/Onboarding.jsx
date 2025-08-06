@@ -18,14 +18,14 @@ const Onboarding = () => {
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
               Managing Startups <br />
-              <span className="text-blue-900">Made Easy</span>
+              <span className="text-blue-600">Made Easy</span>
             </h1>
             <p className="text-lg text-gray-700">
               We’re really excited to know you more !!!
             </p>
             <button
               onClick={() => navigate('/signup')}
-              className="bg-[#1C2C5B] text-white py-3 px-6 rounded-md font-semibold hover:bg-[#16224b] flex items-center gap-2 shadow-md"
+              className="bg-[#2563EB] text-white py-3 px-6 rounded-md font-semibold hover:bg-[#1D4ED8] flex items-center gap-2 shadow-md"
             >
               Next <span className="text-xl">→</span>
             </button>

@@ -31,14 +31,14 @@ const Signup = () => {
       <div className="w-full lg:w-1/2 max-w-md space-y-6 mb-10 lg:mb-0 lg:mr-12">
         <img src={logo} alt="logo" className="w-36" />
         <h2 className="text-4xl font-extrabold text-gray-900 leading-snug">Let's get you started!</h2>
-        <p className="text-blue-800 font-semibold text-lg">Are you a Startup or Incubator?</p>
+        <p className="text-blue-600 font-semibold text-lg">Are you a Startup or Incubator?</p>
 
         <div className="space-y-4">
           {['startup', 'incubator'].map((role) => (
             <div
               key={role}
               className={`flex items-center justify-between border rounded-xl px-5 py-4 cursor-pointer transition-all duration-200 hover:shadow-md ${
-                form.role === role ? 'border-2 border-blue-800 bg-blue-50' : 'border-gray-300 bg-white'
+                form.role === role ? 'border-2 border-blue-600 bg-blue-50' : 'border-gray-300 bg-white'
               }`}
               onClick={() => setForm({ ...form, role })}
             >
@@ -59,7 +59,7 @@ const Signup = () => {
 
         <p className="text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-800 font-semibold hover:underline">
+          <Link to="/login" className="text-blue-600 font-semibold hover:underline">
             Log In
           </Link>
         </p>
@@ -68,10 +68,10 @@ const Signup = () => {
       {/* Right Section - Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md bg-white border border-blue-800 rounded-xl shadow-md px-8 py-10 space-y-6"
+        className="w-full max-w-md bg-white border border-blue-600 rounded-xl shadow-md px-8 py-10 space-y-6"
       >
         <h2 className="text-3xl font-extrabold text-gray-900">Sign Up</h2>
-        <p className="text-blue-800 font-medium text-sm">Get started with your amazing journey!</p>
+        <p className="text-blue-600 font-medium text-sm">Get started with your amazing journey!</p>
 
         {[
           { label: 'First Name', placeholder: 'Enter your first name' },
@@ -90,7 +90,7 @@ const Signup = () => {
                 value={form[name]}
                 onChange={(e) => setForm({ ...form, [name]: e.target.value })}
                 placeholder={placeholder}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-800 text-sm"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 text-sm"
                 required
               />
             </div>
@@ -99,7 +99,7 @@ const Signup = () => {
 
         <button
           type="submit"
-          className="w-full bg-blue-900 text-white font-semibold py-2 rounded-md hover:bg-blue-800 transition duration-200"
+          className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-600 transition duration-200"
         >
           Sign Up
         </button>
